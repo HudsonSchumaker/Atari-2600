@@ -6,3 +6,8 @@ Assembly 6502 Language<br>
 Manipulating Video, Audio, and Input data<br>
 Creating Game ROM Cartridges<br>
 Computer Architecture and Low-Level Programming<br>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+CPU
+
+TIA 
