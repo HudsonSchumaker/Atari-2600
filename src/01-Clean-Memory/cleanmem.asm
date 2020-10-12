@@ -1,5 +1,5 @@
-	processor 6502
-	seg code
+    processor 6502
+    seg code
     org $F000       ; define the code origin at $F000
 
 Start:
