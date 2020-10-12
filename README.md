@@ -8,6 +8,5 @@ Creating Game ROM Cartridges<br>
 Computer Architecture and Low-Level Programming<br>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-CPU
 
-TIA 
+[6502 CPU](http://www.6502.org/tutorials/6502opcodes.html)
