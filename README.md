@@ -16,3 +16,4 @@ Computer Architecture and Low-Level Programming<br>
 [Atari color palettes](https://en.wikipedia.org/wiki/List_of_video_game_console_palettes#Atari_2600) <br>
 [Stella programmer's guide](https://www.atarihq.com/danb/files/stella.pdf) <br>
 [Java Atari](https://javatari.org/)
+[Atari 2600 wiki](https://en.wikipedia.org/wiki/Atari_2600)
