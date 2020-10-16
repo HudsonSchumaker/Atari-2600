@@ -37,22 +37,22 @@ LoopVBlank:
 	lda #0
 	sta VBLANK       ; turn off VBLANK
 ; Draw 192 visible scanlines (kernel)
-	ldx #192	 ; counter for 192 visible scanlines
+    ldx #192	         ; counter for 192 visible scanlines
 LoopVisible:
     stx COLUBK           ; set the background color
     sta WSYNC		 ; wait for the next scanline
-	dex				 ; X--
-	bne LoopVisible  ; loop while X != 0
+    dex		         ; X--
+    bne LoopVisible      ; loop while X != 0
 
 ; Output 30 more VBLANK lines (overscan) to complete our frame
 	lda #2
 	sta VBLANK       ; hit and turn on VBLANK again
 
-	ldx #30			 ; counter for 30 scanlines
+	ldx #30		 ; counter for 30 scanlines
 LoopOverscan:
-	sta WSYNC		 ; wait for the next scanline
-	dex				 ; X--
-	bne	LoopOverscan ; loop while X != 0
+	sta WSYNC	 ; wait for the next scanline
+	dex		 ; X--
+	bne LoopOverscan ; loop while X != 0
 
 	jmp StartFrame   ; go to next frame
 	
