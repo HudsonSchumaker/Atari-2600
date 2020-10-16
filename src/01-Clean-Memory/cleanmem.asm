@@ -1,3 +1,6 @@
+; Hudson Schumaker
+; SchumakerTeam Lab
+ 
     processor 6502
     seg code
     org $F000       ; define the code origin at $F000
