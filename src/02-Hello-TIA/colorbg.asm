@@ -8,13 +8,13 @@
 	include "macro.h"
 	
 ; 4K Atari 2600 ROMs usually start at address $F000
-  seg code
-	org  $f000
+        seg code
+        org  $f000
 START:
 	  CLEAN_START    ; Call macro to safely clear the memory
 BKG:
-    lsr SWCHB	     ; test Console Reset switch
-    bcc START	     ; reset?
+    lsr SWCHB	    ; test Console Reset switch
+    bcc START	    ; reset?
     
     lda #$1C       ; Load color code into A register
     sta COLUBK     ; Store A to memory address $09 (TIA COLUBK)
