@@ -17,4 +17,5 @@ Computer Architecture and Low-Level Programming<br>
 [Stella programmer's guide](https://www.atarihq.com/danb/files/stella.pdf) <br>
 [Java Atari](https://javatari.org/) <br>
 [Atari 2600 wiki](https://en.wikipedia.org/wiki/Atari_2600) <br>
-[Retrochallenge 2018/04](https://www.masswerk.at/rc2018/04/01.html)
+[Retrochallenge 2018/04](https://www.masswerk.at/rc2018/04/01.html) <br>
+[MiniDig](http://www.qotile.net/minidig/tricks.html)
