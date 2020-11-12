@@ -1,7 +1,6 @@
 
-Address Range
-
-Function
+| Address Range | Function |
+|---------------|----------|
 
 $0000 - $007F
 
