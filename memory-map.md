@@ -1,10 +1,9 @@
 
-| Address Range | Function |
-|---------------|----------|
+| Address Range | Function      |
+|---------------|---------------|
+| $0000 - $007F | TIA registers |
 
-$0000 - $007F
 
-TIA registers
 $0080 - $00FF
 
 RAM
