@@ -24,7 +24,7 @@ StartFrame:
     sta VBLANK     ; turn VBLANK on
     sta VSYNC      ; turn VSYNC on
 
-; Generate the three lines of VSYNC
+;Generate the three lines of VSYNC
     REPEAT 3
         sta WSYNC  ; three VSYNC scanlines
     REPEND
@@ -40,7 +40,7 @@ StartFrame:
     lda #0
     sta VBLANK     ; turn VBLANK off
 
-;; Set the CTRLPF register to allow playfield reflect
+;Set the CTRLPF register to allow playfield reflect
     ldx #%00000001 ; CTRLPF register (D0 is the reflect flag)
     stx CTRLPF
 
