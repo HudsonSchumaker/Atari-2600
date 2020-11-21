@@ -1,6 +1,5 @@
     processor 6502
 
-
 ;Include required files with definitions and macros
 
     include "vcs.h"
