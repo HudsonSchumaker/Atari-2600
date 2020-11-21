@@ -24,7 +24,7 @@ StartFrame:
     sta VBLANK     ; turn VBLANK on
     sta VSYNC      ; turn VSYNC on
 
-;; Generate the three lines of VSYNC
+; Generate the three lines of VSYNC
     REPEAT 3
         sta WSYNC  ; three VSYNC scanlines
     REPEND
@@ -32,7 +32,7 @@ StartFrame:
     lda #0
     sta VSYNC      ; turn VSYNC off
 
-;; Let the TIA output the 37 recommended lines of VBLANK
+;Let the TIA output the 37 recommended lines of VBLANK
     REPEAT 37
         sta WSYNC
     REPEND
