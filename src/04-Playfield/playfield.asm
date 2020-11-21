@@ -18,7 +18,7 @@ Reset:
     lda #$1C       ; yellow playfield color
     sta COLUPF
 
-;; Start a new frame by configuring VBLANK and VSYNC
+;Start a new frame by configuring VBLANK and VSYNC
 StartFrame:
     lda #02
     sta VBLANK     ; turn VBLANK on
