@@ -44,7 +44,7 @@ StartFrame:
     ldx #%00000001 ; CTRLPF register (D0 is the reflect flag)
     stx CTRLPF
 
-;; Draw the 192 visible scanlines
+;Draw the 192 visible scanlines
     ; Skip 7 scanlines with no PF set
     ldx #0
     stx PF0
