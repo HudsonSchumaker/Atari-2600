@@ -93,7 +93,7 @@ StartFrame:
         sta WSYNC
     REPEND
 
-;; Output 30 more VBLANK overscan lines to complete our frame
+;Output 30 more VBLANK overscan lines to complete our frame
     lda #2
     sta VBLANK     ; enable VBLANK back again
     REPEAT 30
