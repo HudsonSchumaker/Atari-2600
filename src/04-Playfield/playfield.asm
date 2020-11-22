@@ -100,10 +100,10 @@ StartFrame:
        sta WSYNC   ; output the 30 recommended overscan lines
     REPEND
 
-;; Loop to next frame
+;Loop to next frame
     jmp StartFrame
 
-;; Complete ROM size
+;Complete ROM size
     org $fffc
     .word Reset
     .word Reset
