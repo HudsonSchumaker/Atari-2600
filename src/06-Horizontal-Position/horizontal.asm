@@ -11,7 +11,6 @@
     org $80
 P0XPos   byte      ; sprite X coordinate
 
-
 ; Start our ROM code segment starting at $F000.
     seg Code
     org $F000
