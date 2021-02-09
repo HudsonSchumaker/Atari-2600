@@ -1,6 +1,5 @@
     processor 6502
 
-
 ; Include required files with register mapping and macros
     include "vcs.h"
     include "macro.h"
