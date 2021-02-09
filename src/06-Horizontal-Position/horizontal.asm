@@ -4,7 +4,6 @@
     include "vcs.h"
     include "macro.h"
 
-
 ; Start an uninitialized segment at $80 for var declaration.
 ; We have memory from $80 to $FF to work with, minus a few at
 ; the end if we use the stack.
@@ -13,7 +12,7 @@
 P0XPos   byte      ; sprite X coordinate
 
 
-;; Start our ROM code segment starting at $F000.
+; Start our ROM code segment starting at $F000.
     seg Code
     org $F000
 
@@ -41,8 +40,8 @@ StartFrame:
     lda #0
     sta VSYNC      ; turn VSYNC off
 
-;; Set player horizontal position while in VBLANK
-;; Here we are using 2 WSYNCs (2 lines) of our 37 VBLANK lines
+; Set player horizontal position while in VBLANK
+; Here we are using 2 WSYNCs (2 lines) of our 37 VBLANK lines
     lda P0XPos     ; load register A with desired X position
     and #$7F       ; same as AND 01111111, forces bit 7 to zero
                    ; keeping the result positive
@@ -94,7 +93,7 @@ DrawBitmap:
         sta WSYNC  ; wait for remaining 124 empty scanlines
     REPEND
 
-;; Output 30 more VBLANK overscan lines to complete our frame
+; Output 30 more VBLANK overscan lines to complete our frame
 Overscan:
     lda #2
     sta VBLANK     ; turn VBLANK on again for overscan
@@ -102,7 +101,7 @@ Overscan:
         sta WSYNC
     REPEND
 
-;; Increment X coordinate if we are between 40 and 80 pixels
+; Increment X coordinate if we are between 40 and 80 pixels
     lda P0XPos     ; load A with the player current X position
     cmp #80        ; compare the value with 80
     bpl ResetXPos  ; if A is greater, then reset position
@@ -113,10 +112,10 @@ ResetXPos:
 IncrmXPos:
     inc P0XPos     ; increment the player X position
 
-;; Loop to next frame
+; Loop to next frame
     jmp StartFrame
 
-;; Lookup table for the player graphics bitmap.
+; Lookup table for the player graphics bitmap.
 P0Bitmap:
     byte #%00000000
     byte #%00010000
@@ -128,7 +127,7 @@ P0Bitmap:
     byte #%00111110
     byte #%00011100
 
-;; Lookup table for the player colors.
+; Lookup table for the player colors.
 P0Color:
     byte #$00
     byte #$02
