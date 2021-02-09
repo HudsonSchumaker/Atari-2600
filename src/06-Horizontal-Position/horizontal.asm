@@ -1,23 +1,20 @@
     processor 6502
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Include required files with register mapping and macros
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Include required files with register mapping and macros
     include "vcs.h"
     include "macro.h"
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Start an uninitialized segment at $80 for var declaration.
-;; We have memory from $80 to $FF to work with, minus a few at
-;; the end if we use the stack.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Start an uninitialized segment at $80 for var declaration.
+; We have memory from $80 to $FF to work with, minus a few at
+; the end if we use the stack.
     seg.u Variables
     org $80
 P0XPos   byte      ; sprite X coordinate
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; Start our ROM code segment starting at $F000.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     seg Code
     org $F000
 
@@ -27,33 +24,26 @@ Reset:
     ldx #$88       ; light purple background color
     stx COLUBK
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; Initialize variables
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     lda #40
     sta P0XPos     ; initialize player X coordinate
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Start a new frame by configuring VBLANK and VSYNC
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 StartFrame:
     lda #2
     sta VBLANK     ; turn VBLANK on
     sta VSYNC      ; turn VSYNC on
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display 3 vertical lines of VSYNC
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     REPEAT 3
         sta WSYNC  ; first three VSYNC scanlines
     REPEND
     lda #0
     sta VSYNC      ; turn VSYNC off
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Set player horizontal position while in VBLANK
 ;; Here we are using 2 WSYNCs (2 lines) of our 37 VBLANK lines
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     lda P0XPos     ; load register A with desired X position
     and #$7F       ; same as AND 01111111, forces bit 7 to zero
                    ; keeping the result positive
@@ -73,18 +63,14 @@ DivideLoop:
     sta WSYNC      ; wait for next scanline
     sta HMOVE      ; apply fine position offset to all objects
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Let the TIA output the remaining 35 lines of VBLANK (37 - 2)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     REPEAT 35
         sta WSYNC
     REPEND
     lda #0
     sta VBLANK     ; turn VBLANK off
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Draw the 192 visible scanlines
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     REPEAT 60
         sta WSYNC  ; wait for 60 empty scanlines
     REPEND
@@ -109,9 +95,7 @@ DrawBitmap:
         sta WSYNC  ; wait for remaining 124 empty scanlines
     REPEND
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Output 30 more VBLANK overscan lines to complete our frame
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Overscan:
     lda #2
     sta VBLANK     ; turn VBLANK on again for overscan
@@ -119,9 +103,7 @@ Overscan:
         sta WSYNC
     REPEND
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Increment X coordinate if we are between 40 and 80 pixels
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     lda P0XPos     ; load A with the player current X position
     cmp #80        ; compare the value with 80
     bpl ResetXPos  ; if A is greater, then reset position
@@ -132,14 +114,10 @@ ResetXPos:
 IncrmXPos:
     inc P0XPos     ; increment the player X position
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Loop to next frame
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     jmp StartFrame
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Lookup table for the player graphics bitmap.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 P0Bitmap:
     byte #%00000000
     byte #%00010000
@@ -151,9 +129,7 @@ P0Bitmap:
     byte #%00111110
     byte #%00011100
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Lookup table for the player colors.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 P0Color:
     byte #$00
     byte #$02
@@ -165,9 +141,7 @@ P0Color:
     byte #$52
     byte #$52
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Complete ROM size
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Complete ROM size
     org $FFFC
     word Reset
     word Reset
