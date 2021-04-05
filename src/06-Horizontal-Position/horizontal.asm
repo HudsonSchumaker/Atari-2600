@@ -21,8 +21,7 @@ Reset:
     ldx #$88       ; light purple background color
     stx COLUBK
 
-
-;; Initialize variables
+; Initialize variables
     lda #40
     sta P0XPos     ; initialize player X coordinate
 
