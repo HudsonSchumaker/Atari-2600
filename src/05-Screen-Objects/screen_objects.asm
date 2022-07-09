@@ -1,3 +1,8 @@
+ ;   
+ ; Hudson Schumaker
+ ; Schumaker Team
+ ;
+ 
  processor 6502
 
 ; Include required files with register mapping and macros
