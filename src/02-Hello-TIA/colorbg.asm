@@ -1,6 +1,7 @@
 ; Hudson Schumaker
 ; SchumakerTeam Lab
 ; Assembler should use basic 6502 instructions
+;
 	processor 6502
 	
 ; Include files for Atari 2600 constants and handy macro routines
