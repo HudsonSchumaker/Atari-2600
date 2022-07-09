@@ -1,6 +1,7 @@
-; Hudson Schumaker
-; SchumakerTeam Lab
-;
+ ;   
+ ; Hudson Schumaker
+ ; Schumaker Team
+ ;
  
     processor 6502
     seg code
