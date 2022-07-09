@@ -1,7 +1,9 @@
-  
+;
 ; Hudson Schumaker
 ; SchumakerTeam Lab
 ; a simple playfield
+;
+
 ; source for DASM, 6502 instruction set, importing standard headers
     processor 6502
     include vcs.h
