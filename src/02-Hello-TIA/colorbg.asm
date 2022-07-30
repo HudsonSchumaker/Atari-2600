@@ -1,3 +1,4 @@
+;
 ; Hudson Schumaker
 ; SchumakerTeam Lab
 ; Assembler should use basic 6502 instructions
