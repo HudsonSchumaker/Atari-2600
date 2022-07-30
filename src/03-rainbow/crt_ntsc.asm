@@ -1,3 +1,8 @@
+;
+; Hudson Schumaker
+; SchumakerTeam Lab
+; Assembler should use basic 6502 instructions
+;
 
 	processor 6502
 	include "vcs.h"
