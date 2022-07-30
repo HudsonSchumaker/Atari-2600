@@ -1,7 +1,7 @@
- ;   
- ; Hudson Schumaker
- ; Schumaker Team
- ;    
+;   
+; Hudson Schumaker
+; Schumaker Team
+;    
       
     processor 6502
 
