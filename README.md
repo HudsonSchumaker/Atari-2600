@@ -1,4 +1,4 @@
-# Atari-2600 
+# Atari-2600
 Bare basics for create an Atari 2600 game
 
 Programming for the Atari 2600<br>
