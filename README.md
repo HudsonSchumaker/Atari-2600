@@ -5,7 +5,7 @@ Programming for the Atari 2600<br>
 Assembly 6502 Language<br>
 Manipulating Video, Audio, and Input data<br>
 Creating Game ROM Cartridges<br>
-Computer Architecture and Low-Level Programming<br>
+Computer Architecture and Low-Level Programming<br> 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 [6502 Registers](https://en.wikipedia.org/wiki/MOS_Technology_6502#Registers) <br>
