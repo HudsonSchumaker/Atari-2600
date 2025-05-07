@@ -20,4 +20,4 @@ Computer Architecture and Low-Level Programming<br>
 [Retrochallenge 2018/04](https://www.masswerk.at/rc2018/04/01.html) <br>
 [MiniDig](http://www.qotile.net/minidig/tricks.html) <br>
 [Tiny 8-Bit Sprite Editor](https://www.masswerk.at/rc2018/04/TinySpriteEditor/) <br>
-[Atari Arch](https://www.atariarchives.org/sitemap.php)
+[Atari Arch](https://www.atariarchives.org/sitemap.php) 
